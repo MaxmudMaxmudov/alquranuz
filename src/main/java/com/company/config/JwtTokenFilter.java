@@ -1,6 +1,6 @@
 package com.company.config;
 
-import com.company.dto.ProfileJwtDTO;
+import com.company.dto.profile.ProfileJwtDTO;
 import com.company.util.JwtUtil;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.SignatureException;

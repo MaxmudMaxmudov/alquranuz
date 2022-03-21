@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.dto.ProfileDTO;
+import com.company.dto.profile.ProfileDTO;
 import com.company.enums.ProfileRole;
 import com.company.enums.ProfileStatus;
 import com.company.service.ProfileService;

@@ -15,6 +15,8 @@ public class MessageDTO {
     private String subject;
     private String email;
     private String text;
+    private String content;
+
     private LocalDateTime usedDate;
 
     private Boolean used = false;

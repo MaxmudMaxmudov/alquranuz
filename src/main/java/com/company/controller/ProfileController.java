@@ -1,7 +1,7 @@
 package com.company.controller;
 
-import com.company.dto.ProfileDTO;
-import com.company.dto.ProfileJwtDTO;
+import com.company.dto.profile.ProfileDTO;
+import com.company.dto.profile.ProfileJwtDTO;
 import com.company.enums.ProfileRole;
 import com.company.service.ProfileService;
 import com.company.util.JwtUtil;
@@ -24,16 +24,9 @@ public class ProfileController {
     private ProfileService profileService;
 
     @PostMapping("/create")
-    @ApiResponses(value = {@ApiResponse(code = 400, message = "@ApiResponse(code = 400, message = \"...\")")})
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "@ApiResponse(code = 400, message = )")})
     public ResponseEntity<?> create(@Valid @RequestBody ProfileDTO dto, HttpServletRequest request) {
         JwtUtil.getProfile(request, ProfileRole.ADMIN_ROLE);
-        ProfileDTO response = profileService.create(dto);
-        return ResponseEntity.ok(response);
-    }
-
-    @PostMapping("/createUser")
-    @ApiResponses(value = {@ApiResponse(code = 400, message = "@ApiResponse(code = 400, message = \"...\")")})
-    public ResponseEntity<?> createUser(@Valid @RequestBody ProfileDTO dto) {
         ProfileDTO response = profileService.create(dto);
         return ResponseEntity.ok(response);
     }

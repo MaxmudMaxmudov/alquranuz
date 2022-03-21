@@ -1,7 +1,7 @@
 package com.company.controller;
 
-import com.company.dto.AuthorizationDTO;
-import com.company.dto.ProfileDTO;
+import com.company.dto.auth.AuthorizationDTO;
+import com.company.dto.profile.ProfileDTO;
 import com.company.dto.RegistrationDTO;
 import com.company.service.AuthService;
 import io.swagger.annotations.*;
@@ -20,12 +20,6 @@ public class AuthController {
 
     @PostMapping("/login")
     @ApiOperation(value = "Loginning", notes = "Sign in", nickname = "alquran")
-    @ApiResponses(value = {
-            @ApiResponse(code = 500, message = "Server error"),
-            @ApiResponse(code = 404, message = "Service not found"),
-            @ApiResponse(code = 200, message = "Successful retrieval",
-                    response = ProfileDTO.class, responseContainer = "List") })
-
     public ResponseEntity<ProfileDTO> login(@Valid @RequestBody AuthorizationDTO dto){
         ProfileDTO response = authService.authorization(dto);
         return ResponseEntity.ok(response);
@@ -33,11 +27,6 @@ public class AuthController {
 
     @PostMapping("/registration")
     @ApiOperation(value = "Registration", notes = "without Token")
-    @ApiResponses(value = {
-            @ApiResponse(code = 500, message = "Server error"),
-            @ApiResponse(code = 404, message = "Service not found"),
-            @ApiResponse(code = 200, message = "Successful retrieval",
-                    response = ProfileDTO.class, responseContainer = "List") })
     public ResponseEntity registration(@Valid @RequestBody RegistrationDTO dto) {
         authService.registration(dto);
         return ResponseEntity.ok("Successfully!!!");

@@ -1,7 +1,7 @@
 package com.company.service;
 
-import com.company.dto.AuthorizationDTO;
-import com.company.dto.ProfileDTO;
+import com.company.dto.auth.AuthorizationDTO;
+import com.company.dto.profile.ProfileDTO;
 import com.company.dto.RegistrationDTO;
 
 import com.company.dto.MessageDTO;
@@ -69,6 +69,7 @@ public class AuthService {
         entity.setEmail(dto.getEmail());
         entity.setLogin(dto.getLogin());
         entity.setPassword(password);
+
         entity.setStatus(ProfileStatus.CREATED);
 
         entity.setRole(ProfileRole.USER_ROLE);
@@ -87,8 +88,7 @@ public class AuthService {
                 .append(", Firstly, thanks for registration\n")
                 .append("To verify your email for alquran.uz click on link below 👇\n")
                 .append("http://")
-                .append(host)
-                .append(":9090/auth/verification/")
+                .append("localhost:8082/auth/verification/")
                 .append(jwt);
 
         String title = "alquran.uz verification";
@@ -96,6 +96,8 @@ public class AuthService {
         messageDTO.setSubject(title);
         messageDTO.setText(builder.toString());
         messageDTO.setEmail(dto.getEmail());
+
+
 
         emailService.sendEmail(messageDTO);
         emailService.saveMessage(messageDTO);

@@ -19,8 +19,10 @@ public class MessageEntity extends BaseEntity{
     @Column(name = "subject")
     private String subject;
 
-    @Column(name = "content", columnDefinition = "TEXT NOT NULL")
+    @Column(name = "content", columnDefinition = "TEXT")
     private String content;
+
+
     @Column(name = "used")
     private Boolean used = false;
     @Column(name = "used_date")

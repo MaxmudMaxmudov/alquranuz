@@ -1,6 +1,6 @@
 package com.company.util;
 
-import com.company.dto.ProfileJwtDTO;
+import com.company.dto.profile.ProfileJwtDTO;
 import com.company.enums.ProfileRole;
 import com.company.exceptions.ForbiddenException;
 import com.company.exceptions.UnauthorizedException;

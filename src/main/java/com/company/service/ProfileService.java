@@ -1,7 +1,6 @@
 package com.company.service;
 
-import com.company.controller.ProfileController;
-import com.company.dto.ProfileDTO;
+import com.company.dto.profile.ProfileDTO;
 import com.company.entity.ProfileEntity;
 import com.company.exceptions.ItemNotFoundException;
 import com.company.repository.ProfileRepository;

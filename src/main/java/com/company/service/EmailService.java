@@ -23,8 +23,10 @@ import java.util.stream.Collectors;
 public class EmailService {
 
 
-    final JavaMailSender mailSender;
-    final MessageRepository messageRepository;
+    @Autowired
+    private JavaMailSender mailSender;
+    @Autowired
+    private MessageRepository messageRepository;
 
     public void sendEmail(MessageDTO dto) {
         SimpleMailMessage message = new SimpleMailMessage();
@@ -43,6 +45,8 @@ public class EmailService {
         messageEntity.setUsed(dto.getUsed());
         messageEntity.setUsedDate(dto.getUsedDate());
         messageEntity.setId(dto.getId());
+
+
 
         messageRepository.save(messageEntity);
         dto.setId(messageEntity.getId());
